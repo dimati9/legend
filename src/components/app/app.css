@@ -1,13 +1,14 @@
 .desc {
     position: absolute;
     left: 10vw;
-    top: 20vh;
+    top: 10vh;
     width: 80vw;
-    height: 60vh;
+    height: 80vh;
     z-index: 2;
     background-color: antiquewhite;
     border-radius: 15px;
     border: 1px solid #fff;
+    overflow-y: scroll;
 }
 
 .desc .text {
@@ -17,7 +18,7 @@
 }
 
 .buttons {
-    position: absolute;
+    position: fixed;
     bottom: 15px;
     left: 50%;
     display: flex;
@@ -63,4 +64,21 @@
 
 .addPlace:hover{
     background-color: #249d24;
+}
+
+.msg {
+    display: inline-block;
+    margin: 0 auto;
+    position: absolute;
+    z-index: 33;
+    top: 2vh;
+    width: auto;
+    text-align: center;
+    font-size: 5vh;
+    background-color: #28b828;
+    color: #fff;
+    padding: 10px 15px;
+    left: 50%;
+    transform: translate(-50%, 10px);
+
 }

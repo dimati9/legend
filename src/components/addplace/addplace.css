@@ -1,0 +1,73 @@
+.add-place {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 70vw;
+    height: 100vh;
+    background-color: #b8dff5f5;
+    /* border: 1px solid #fff; */
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    z-index: 5;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    overflow-y: scroll;
+}
+
+.add-place label p {
+    width: 100%;
+    text-align: center;
+}
+
+.add-place label {
+    display: block;
+    width: 30vw;
+}
+
+.add-place input {
+    width: 100%;
+    padding: 10px 10px;
+}
+
+.add-place .text {
+    height: 17vh;
+}
+
+.add-place .buttons button {
+    margin-top: 10px;
+    background-color: #28b828;
+    padding: 10px 15px;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    font-size: 3vh;
+
+}
+
+.buttons {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+}
+
+.add-place button:hover {
+    background-color: #1e8f1e;
+}
+
+.add-place .buttons button.add-place__close {
+    left: 10px;
+    background-color: #b82834;
+}
+
+.add-place .buttons button.add-place__close:hover  {
+    background-color: #8d222b;
+}
+
+CKEditor {
+    height: 500px;
+}
