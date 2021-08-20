@@ -65,7 +65,7 @@ class AddPlace extends Component {
                     <label>
                         <p>Текст</p>
                         <CKEditor
-                            initData={<p>Hello from CKEditor 4!</p>}
+                            initData={<p>Любой текст и картинки на ваш вкус!</p>}
                             onChange={this.changeText}
                         />
                     </label>
