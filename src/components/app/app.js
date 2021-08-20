@@ -65,6 +65,7 @@ class App extends Component {
                 maxZoom: 12,
                 minZoom: 9,
             });
+            window.myMap = myMap;
 
             // Кнопка
             var adding = new window.ymaps.control.Button({
@@ -81,6 +82,7 @@ class App extends Component {
                     maxWidth: 300,
                 }
             });
+            window.adding = adding;
             myMap.controls.add(adding);
 
             adding.events.add('select', function (e) {
@@ -201,6 +203,8 @@ class App extends Component {
                 this.getObjects();
                 this.closePlace();
                 this.messageSet("Объект успешно добавлен", 3);
+                window.adding.deselect();
+                window.myMap.balloon.close();
             }
         } catch (error) {
             console.log(error);
