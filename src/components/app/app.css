@@ -1,0 +1,54 @@
+.desc {
+    position: absolute;
+    left: 10vw;
+    top: 20vh;
+    width: 80vw;
+    height: 60vh;
+    z-index: 2;
+    background-color: antiquewhite;
+    border-radius: 15px;
+    border: 1px solid #fff;
+}
+
+.desc .text {
+    text-align: center;
+    color: #000;
+    font-size: 12vh;
+}
+
+.buttons {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    transform: translate(-50%, 0);
+    width: 100%;
+}
+
+.buttons button {
+    background-color: #1097de;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 5vh;
+    color: #000;
+    border: 1px solid #fff;
+}
+
+.buttons button.adding {
+    background-color: #28b828;
+    color: #fff;
+}
+
+.buttons button.close {
+    background-color: #d41a30;
+    color: #fff;
+}
+
+.buttons button.adding:hover {
+    background-color: #1a751a;
+}
+.buttons button.close:hover {
+    background-color: #a21c2c;
+}
