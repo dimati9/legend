@@ -4,7 +4,8 @@ import './app.css';
 
 class App extends Component {
     state = {
-        server: "http://localhost:3100",
+        serverLocal: "http://localhost:3100",
+        server: "https://nov-legend.herokuapp.com",
         objects: null,
         objects2: [
             {name:"Fox", coord:[58.52461842, 31.16543115], icon:"fox",desc:"Красивая лисичка здесь пробегала"},
@@ -26,8 +27,67 @@ class App extends Component {
         window.ymaps.ready(() => {
             const myMap = new window.ymaps.Map('map', {
                 center: [58.52461842, 31.26943415],
-                zoom: 12
+                zoom: 12,
+                controls: [],
+                restrictMapArea: [
+                    [58.52278425, 31.11547119],
+                    [58.52354086, 31.35984110]
+                ],
+
+            }, {
+                maxZoom: 12,
+                minZoom: 9,
             });
+
+            // Кнопка
+            var adding = new window.ymaps.control.Button({
+                data: {
+                    // Зададим текст и иконку для кнопки.
+                    content: "Добавить место",
+                    // Иконка имеет размер 16х16 пикселей.
+                    image: '/images/map/adding.png',
+                    title: "Добавить место",
+                },
+                options: {
+                    // Поскольку кнопка будет менять вид в зависимости от размера карты,
+                    // зададим ей три разных значения maxWidth в массиве.
+                    maxWidth: 300,
+                }
+            });
+            myMap.controls.add(adding);
+
+            adding.events.add('select', function (e) {
+                myMap.behaviors
+                    .disable(['drag', 'rightMouseButtonMagnifier'])
+            })
+
+            adding.events.add('deselect', function (e) {
+                myMap.behaviors
+                    .enable(['drag', 'rightMouseButtonMagnifier'])
+            })
+
+            // Событие добавление метки
+            myMap.events.add('click', function (e) {
+                if(adding.isSelected()) {
+                    if (!myMap.balloon.isOpen()) {
+                        var coords = e.get('coords');
+                        myMap.balloon.open(coords, {
+                            contentHeader:'Отличное место!',
+                            contentBody:'<p>Координаты: ' + [
+                                    coords[0].toPrecision(6),
+                                    coords[1].toPrecision(6)
+                                ].join(', ') + '</p>',
+                            contentFooter:'<button class="addPlace">Добавить здесь место</button>'
+                        });
+                    }
+                    else {
+                        myMap.balloon.close();
+                    }
+                }
+
+            });
+
+            // Разбираем все объекты и размещаем на карте
             this.state.objects.map((object) => {
                 let coords = object.coords.split(",");
                 console.log(object.coords)

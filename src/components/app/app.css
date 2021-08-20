@@ -52,3 +52,15 @@
 .buttons button.close:hover {
     background-color: #a21c2c;
 }
+
+.addPlace {
+    background-color: #1a751a;
+    color: #fff;
+    padding: 10px 15px;
+    border: 1px solid #fff;
+    border-radius: 15px;
+}
+
+.addPlace:hover{
+    background-color: #249d24;
+}
