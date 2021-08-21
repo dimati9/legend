@@ -1,3 +1,8 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 .desc {
     position: absolute;
     left: 10vw;

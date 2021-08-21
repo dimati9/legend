@@ -146,6 +146,32 @@ class App extends Component {
                     })
                 });
             });
+            window.we = new window.ymaps.Placemark([58.52461842, 31.26943415], {
+                balloonContent: '<strong>Вы здесь</strong>'
+            }, {
+                preset: 'islands#icon',
+                iconColor: '#0095b6'
+            });
+            myMap.geoObjects.add(window.we);
+
+            var multiRoute = new window.ymaps.multiRouter.MultiRoute({
+                // Точки маршрута. Точки могут быть заданы как координатами, так и адресом.
+                referencePoints: [
+                    [58.52461842, 31.26943415],
+                    [58.52461842, 31.16543115],
+                    [58.544906109746826,31.22789209677736],
+                    [58.5661842, 31.36943415], //wolf
+                    //wolf
+                ],
+                params: {
+                    viaIndexes: [1],
+                }
+            }, {
+                // Автоматически устанавливать границы карты так,
+                // чтобы маршрут был виден целиком.
+                boundsAutoApply: true
+            });
+            myMap.geoObjects.add(multiRoute);
 
         })
     }

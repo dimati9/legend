@@ -1,10 +1,11 @@
 .first {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     min-height: 100vh;
     position: absolute;
-    background-color: #fff;
+    background-color: #E7F0F5;
     z-index: 5;
+    overflow: hidden;
 }
 
 .first .success {
@@ -17,8 +18,16 @@
 .first h1, h2,h3{
     text-align: center;
 }
+.first-dragger h1 {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 24px;
+    color: #5E5E5E;
+}
+
 
 .elements {
+    margin-top: 175px;
     display: flex;
     max-height: 500px;
     flex-direction: column;
@@ -32,8 +41,8 @@
     box-sizing: border-box;
     width: 500px;
     height: 500px;
-    background-color: cornflowerblue;
-    border-radius: 15px;
+    background-color: #FFFFFF;
+    border-radius: 30px;
     padding: 15px;
     text-align: center;
     min-width: 500px;
@@ -46,9 +55,21 @@
     z-index: 10;
 }
 
+.element h3 {
+    color: #000000;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.element p {
+    color: #000000;
+    font-size: 20px;
+}
+
 .element img {
     pointer-events: none;
-    width: 20vw;
+    width: 12vw;
+    border-radius: 50%;
 }
 
 .pos {
@@ -63,14 +84,14 @@
 }
 
 .pos .left {
-    background-color: rgba(179, 40, 57, 0.3);
-    height: 40vh;
+    background-color: rgba(255, 83, 83, 0.1);
+    height: 50vh;
     width: 36vw;
 }
 
 .pos .right {
     background-color: #28d24c14;
-    height: 40vh;
+    height: 50vh;
     width: 36vw;
 }
 
@@ -111,10 +132,23 @@
     text-align: center;
 }
 
-.show-places h3 {
-    color: #357335;
-    font-size: 3vw;
+.show-places .header {
+    background-color: #414288;
+    padding: 8px 130px;
+    border: none;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    width: fit-content;
+    margin: 0 auto;
 }
+
+.show-places .header h3 {
+    color: #FFFFFF;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+
 
 .show-places ul {
     list-style: none;
@@ -125,18 +159,265 @@
 }
 
 .show-places ul a {
-    padding: 10px 15px;
-    color: #fff;
-    background-color: #1097de;
-    font-size: 1vw;
+    padding: 20px 100px;
+    color: #414288;
+    background-color: #FAFAFA;
+    font-size: 40px;
+    font-weight: bold;
     margin-top: 5px;
+    border-radius: 150px;
+}
+
+.show-places ul a:visited {
+    color: #414288;
 }
 
 .show-places ul a:hover {
     background-color: #1ba6ef;
+    color: #fff;
 }
 
 .show-places ul a {
     color: #fff;
     text-decoration: none;
+}
+
+.first-page,.two-page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
+    position: absolute;
+    z-index: 99;
+    background-color: #fff;
+}
+
+.two-page {
+    background: url("https://sun9-44.userapi.com/impg/B27Hiyp6TbrsB1fKGSpIZ8DVH_3_zxivIHOlhA/ECzT6r1wbZk.jpg?size=2560x1440&quality=96&sign=da79f1faa1cc50ab6bbaa2417e4602f4&type=album") round;
+}
+
+
+.two-page img {
+    width: 100%
+}
+.two-page .block {
+    width: 479px;
+    position: absolute;
+    top: 50%;
+    background-color: #414288;
+    border-radius: 20px;
+    padding-bottom: 75px;
+    border: none;
+}
+
+.two-page .block h2 {
+    margin-bottom: 10px;
+}
+
+.two-page .block p {
+    color: #fff;
+    max-width: 427px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 45px;
+    margin-top: 45px;
+}
+
+.two-page .block-1 {
+    top: 30%;
+}
+
+.two-page .block-2 {
+    top: 10%;
+    left: 30%;
+}
+
+.two-page .block-3 {
+    top: 10%;
+    left: 50%;
+}
+
+.two-page .block-4 {
+    top: 30%;
+    left: 50%;
+}
+
+.two-page .block-5 {
+    top: 30%;
+    left: 60%;
+}
+
+.two-page .block-6 {
+    top: 11%;
+    left: 65%;
+}
+
+
+.two-page button {
+    background-color: #5EAB2F;
+    color: #fff;
+    padding: 15px 45px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    /*border-radius: 20px;*/
+}
+.block-buttons {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.block-buttons .close, .block-buttons .one {
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 17px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.block-buttons .close {
+    background-color: #E23A5A;
+}
+
+.block-buttons .close:hover {
+    background-color: #c32f4b;
+}
+
+.block-buttons .next:hover,.block-buttons .one:hover {
+    background-color: #4e8f27;
+}
+
+.block-buttons .next {
+    border-bottom-left-radius: 17px;
+    border-top-right-radius: 25px;
+}
+
+.two-page .block h2 {
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    font-size: 34px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 30px;
+}
+
+.ber {
+    position: absolute;
+    left: 15%;
+    top: 38%;
+}
+
+.ber.active path {
+    fill: #fff;
+}
+
+.mark {
+    position: absolute;
+    left: 55%;
+    top: 24%;
+}
+
+.mark.active path {
+    fill: #fff;
+}
+
+.hram.active path {
+    fill: #fff;
+}
+
+.duck {
+    position: absolute;
+    left: 30%;
+    top: 62%;
+}
+
+.duck.active path {
+    fill: #fff;
+
+}
+
+.guise {
+    position: absolute;
+    left: 35%;
+    top: 18%;
+}
+
+.guise.active path {
+    fill: #fff;
+
+}
+
+.first-page img {
+    width: 310px;
+}
+
+.first-page p {
+    font-family: "Roboto Thin";
+    font-weight: bold;
+    max-width: 533px;
+    color: #2D2E83;
+}
+
+.first-page button {
+    background-color: #2D2E83;
+    font-size: 36px;
+    padding: 12px 36px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 63px;
+    color: #fff;
+}
+
+.first-page button:hover {
+    background-color: #3b3cb3;
+}
+
+.three-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 55;
+    background-color: #fff;
+}
+
+.three-page h2 {
+    color: #0D253C;
+    font-size: 72px;
+    font-weight: bold;
+}
+
+.three-page h5, p {
+    color: #979797;
+}
+
+.three-page h5 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.three-page button {
+    cursor: pointer;
+    background-color: #5EAB2F;
+    padding: 26px 68px;
+    color: #fff;
+    font-size: 36px;
+    border: none;
+    border-radius: 15px;
+}
+
+.three-page button:hover {
+    background-color: #4d8d26;
 }
