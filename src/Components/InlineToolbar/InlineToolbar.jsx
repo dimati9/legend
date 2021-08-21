@@ -1,5 +1,5 @@
 import React from 'react';
-import './InlineToolbar.scss';
+import './inlineToolbar.scss';
 import IconLink from 'material-ui/svg-icons/content/link';
 
 
