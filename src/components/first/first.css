@@ -1,0 +1,142 @@
+.first {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    position: absolute;
+    background-color: #fff;
+    z-index: 5;
+}
+
+.first .success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.first h1, h2,h3{
+    text-align: center;
+}
+
+.elements {
+    display: flex;
+    max-height: 500px;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+    align-content: center;
+}
+
+.elements .element {
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 500px;
+    height: 500px;
+    background-color: cornflowerblue;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    min-width: 500px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.element img {
+    pointer-events: none;
+    width: 20vw;
+}
+
+.pos {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 25vh;
+    width: 98vw;
+    margin: 0 auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.pos .left {
+    background-color: rgba(179, 40, 57, 0.3);
+    height: 40vh;
+    width: 36vw;
+}
+
+.pos .right {
+    background-color: #28d24c14;
+    height: 40vh;
+    width: 36vw;
+}
+
+.skip {
+    padding: 13px 26px;
+    background-color: red;
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%,0);
+    cursor: pointer;
+}
+
+.skip:hover, .skip2:hover {
+    background-color: #bc1111;
+}
+
+.skip2 {
+    cursor: pointer;
+    padding: 13px 26px;
+    background-color: red;
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+}
+
+.show-places {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgb(239, 243, 239);
+    z-index: 50;
+    text-align: center;
+}
+
+.show-places h3 {
+    color: #357335;
+    font-size: 3vw;
+}
+
+.show-places ul {
+    list-style: none;
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.show-places ul a {
+    padding: 10px 15px;
+    color: #fff;
+    background-color: #1097de;
+    font-size: 1vw;
+    margin-top: 5px;
+}
+
+.show-places ul a:hover {
+    background-color: #1ba6ef;
+}
+
+.show-places ul a {
+    color: #fff;
+    text-decoration: none;
+}

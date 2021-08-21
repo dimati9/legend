@@ -82,3 +82,51 @@
     transform: translate(-50%, 10px);
 
 }
+
+.intro {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.intro .added, .intro .icon {
+    width: 20vw;
+    height: 24vh;
+    position: absolute;
+    left: 10vw;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background-color: #fff;
+    border: none;
+    border-radius: 15px;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 50;
+}
+
+.intro .added p {
+    margin: 1px;
+}
+
+.intro .added h3 {
+    margin: 5px;
+}
+
+.intro .icon {
+    left: 50%;
+    top: 50%;
+}
+
+.ok {
+    padding: 5px 30px;
+    border: none;
+    border-radius: 15px;
+    background-color: #28b828;
+    font-size: 24px;
+    color: #fff;
+}

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import AddPlace from "../addplace";
+import First from "../first";
 
 import './app.css';
 
@@ -17,9 +18,13 @@ class App extends Component {
         coords: null,
         place: false,
         message: "",
+        places: null,
+        first: true,
+        intro: false,
     };
 
     componentDidMount() {
+        this.getPlaces();
         this.getObjects();
         let this2 = this;
         window.addPlace = function (coords) {
@@ -181,6 +186,42 @@ class App extends Component {
         }
     }
 
+    closeFirst = () => {
+        this.setState(() => {
+            return {
+                first: false,
+                intro: true,
+            }
+        })
+    }
+
+
+    getPlaces = async () => {
+        const url = `${this.state.server}/getPlaces/`;
+        try {
+            const response = await fetch(url, {
+                method: 'GET', // или 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            const json = await response.json();
+            const data = JSON.parse(json.data);
+            if(data !== undefined && data !== null) {
+                this.setState(() => {
+                    return {
+                        places: data,
+                    }
+                }, () => {
+                    console.log(this.state.places)
+                })
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     addObject = async(object) => {
         console.log(object);
         console.log(this.state.coords);
@@ -231,28 +272,50 @@ class App extends Component {
         return {__html: this.state.descText};
     }
 
+    removeParent = (e) => {
+        e.target.parentElement.remove();
+    }
+
     render() {
-        const {descText,showDesc,place, message} = this.state;
+        const {descText,showDesc,place, message,first, places,intro} = this.state;
         return (
             <div className="map">
-                {message !== "" ? <div className="msg">{message}</div> : ""}
-                {showDesc && !place ?
-                <div className="desc">
-                   <div className="text" dangerouslySetInnerHTML={this.createMarkup()}>
-
-                   </div>
-                    <div className="buttons">
-                        <button className="adding">Построить маршрут</button>
-                        <button onClick={this.closeDesc.bind(this)} className="close">Закрыть</button>
+                {first && places !== null ? <First closeFirst={this.closeFirst} places={places} /> : ""}
+                <>
+                    {intro ?
+                    <div className="intro">
+                        <div className="icon">
+                            <h3>Нажимай на эконку любого места и читай описание о нём</h3>
+                            <button className="ok" onClick={this.removeParent}>Ок</button>
+                        </div>
+                        <div className="added">
+                            <h3>Если хочешь разместить новый объект:</h3>
+                            <p>Зажми кнопку Добавить место и клики по карте</p>
+                            <p>Заполни поля в редакторе и место сразу отобразится</p>
+                            <button className="ok"  onClick={this.removeParent}>Ок</button>
+                        </div>
                     </div>
-                </div>
-                    : ""
-                }
-                {place ?
-                    <AddPlace add={this.addObject} closePlace={this.closePlace} />
-                    : ""
-                }
-                <div id="map" style={{width: "100vw", height: "100vh"}}></div>
+                    : ""}
+                    {message !== "" ? <div className="msg">{message}</div> : ""}
+                    {showDesc && !place ?
+                        <div className="desc">
+                            <div className="text" dangerouslySetInnerHTML={this.createMarkup()}>
+
+                            </div>
+                            <div className="buttons">
+                                <button className="adding">Построить маршрут</button>
+                                <button onClick={this.closeDesc.bind(this)} className="close">Закрыть</button>
+                            </div>
+                        </div>
+                        : ""
+                    }
+                    {place ?
+                        <AddPlace add={this.addObject} closePlace={this.closePlace} />
+                        : ""
+                    }
+                    <div id="map" style={{width: "100vw", height: "100vh"}}></div>
+                </>
+
             </div>
         )
     }
