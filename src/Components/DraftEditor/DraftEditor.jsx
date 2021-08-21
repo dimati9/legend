@@ -1,7 +1,7 @@
 import 'draft-js/dist/Draft.css';
 import './draftEditor.scss'
 import { getSelectionCoords, getSelectionRange, addNewBlockAt, getCurrentBlock } from '../../utils';
-import React from 'react';
+import React, {Component} from 'react';
 import { CompositeDecorator, Editor, EditorState, RichUtils, DefaultDraftBlockRenderMap, convertToRaw } from 'draft-js';
 
 import { render } from 'react-dom';
@@ -11,16 +11,16 @@ import { Map } from 'immutable';
 import _map from 'lodash/map';
 import _forEach from 'lodash/forEach';
 
-import InlineToolbar from '../../Components/InlineToolbar';
-import EditorSlider from '../../Components/Slider/EditorSlider';
-import ContentSlider from '../../Components/Slider/ContentSlider';
+import InlineToolbar from '../InlineToolbar';
+import EditorSlider from '../Slider/EditorSlider';
+import ContentSlider from '../Slider/ContentSlider';
 import converter from './Converter';
 
 const urlCreator = window.URL || window.webkitURL;
 
 
 
-export default class DraftEditor extends React.Component {
+export default class DraftEditor extends Component {
 
    // static propTypes = {
    //    block: Type.object,
@@ -36,10 +36,10 @@ export default class DraftEditor extends React.Component {
          },
       ]);
 
-      this.state = {
-         inlineToolbar: { show: false },
-         editorState: EditorState.createEmpty(decorator)
-      };
+     this.state = {
+        inlineToolbar: { show: false },
+        editorState: EditorState.createEmpty(decorator)
+     }
 
       // this.onChange = this.props.blockProps.setEditorState;
 
@@ -84,7 +84,7 @@ export default class DraftEditor extends React.Component {
          }
          );
       } else {
-         console.log(this.setState)
+         console.log(this.state)
          this.setState({ inlineToolbar: { show: false } });
       }
 
@@ -195,6 +195,7 @@ export default class DraftEditor extends React.Component {
    }
 
    render() {
+      console.log(this.state);
       const { editorState, inlineToolbar } = this.state;
 
       return (
@@ -217,10 +218,10 @@ export default class DraftEditor extends React.Component {
             >
                <Editor
                   editorState={editorState}
-                  onChange={this.onChange}
+                  onChange={this.onChange.bind(this)}
                   handleKeyCommand={this.handleKeyCommand}
                   customStyleMap={customStyleMap}
-                  handleDroppedFiles={this.handleDroppedFiles}
+                  handleDroppedFiles={this.handleDroppedFiles.bind(this)}
                   handleReturn={this.handleReturn}
                   blockRenderMap={RenderMap}
                   blockRendererFn={this.blockRendererFn}

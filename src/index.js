@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import App from './components/app';
-import DraftEditor from './Components/DraftEditor/DraftEditor';
+import DraftEditor from './components/DraftEditor'
 
 const container = document.getElementById('container')
 
